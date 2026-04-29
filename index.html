@@ -5,16 +5,17 @@
     <title>Coffee POS System</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles/styles.css">
+
+    <link rel="stylesheet" href="assets/CSS/styles.css">
 </head>
 <body>
 
 
 <!--navbar-->
-<nav id="navbar" class="navbar navbar-dark bg-primary position-fixed w-100 top-0">
+<nav id="navbar" class="navbar position-fixed w-100 top-0 coffee-nav">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Coffee POS</a>
-    </div>>
+    </div>
 
     <button id="menu_btn" class="btn btn-info">
         ☰
@@ -26,7 +27,7 @@
 
 
 <!-- sidebar-->
-<aside id="sidebar" class="bg-light position-fixed top-50">
+<aside id="sidebar"  class="position-fixed coffee-sidebar ">
 
     <ul class="navbar-nav p-3">
 
@@ -63,6 +64,7 @@
 <script src="controller/SidebarController.js"></script>
 <script type="module" src="controller/CustomerController.js"></script>
 <script type="module" src="controller/ItemController.js"></script>
+
 
 </body>
 </html>
