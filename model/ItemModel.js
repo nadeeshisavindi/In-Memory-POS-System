@@ -22,7 +22,7 @@ class Item {
     set qty(v) { this.#qty = v; }
 }
 
-// rud
+// crud
 const addItem = (id,name,price,qty) =>
     item_db.push(new Item(id,name,price,qty));
 
@@ -32,5 +32,23 @@ const updateItem = (id,name,price,qty) => {
         i.name=name; i.price=price; i.qty=qty;
     }
 };
+
+const deleteItem = (id) => {
+    let index = item_db.findIndex(i => i.id == id);
+    if(index !== -1) item_db.splice(index,1);
+};
+
+const getItems = () => item_db;
+const getItemByIndex = (i) => item_db[i];
+
+export { addItem, updateItem, deleteItem, getItems, getItemByIndex };
+
+
+
+
+
+
+
+
 
 
