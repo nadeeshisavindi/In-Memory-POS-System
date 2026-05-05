@@ -23,7 +23,7 @@ class Customer {
     set address(v) { this.#address = v; }
 }
 
-// CRUD
+// crud
 const addCustomer = (id, name, phone, address) =>
     customer_db.push(new Customer(id, name, phone, address));
 
