@@ -29,5 +29,15 @@ $('#item_tbody').on('click','tr',function(){
     $('#item_qty').val(i.qty);
 });
 
+// SAVE
+$('#item_save_btn').on('click',()=>{
+    addItem(
+        $('#item_id').val(),
+        $('#item_name').val(),
+        $('#item_price').val(),
+        $('#item_qty').val()
+    );
+    loadItemTbl();
+});
 
 
