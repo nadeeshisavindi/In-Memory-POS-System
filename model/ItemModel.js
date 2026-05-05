@@ -22,8 +22,15 @@ class Item {
     set qty(v) { this.#qty = v; }
 }
 
+// rud
+const addItem = (id,name,price,qty) =>
+    item_db.push(new Item(id,name,price,qty));
 
-
-
+const updateItem = (id,name,price,qty) => {
+    let i = item_db.find(x => x.id == id);
+    if(i){
+        i.name=name; i.price=price; i.qty=qty;
+    }
+};
 
 
