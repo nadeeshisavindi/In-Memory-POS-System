@@ -5,66 +5,181 @@
     <title>Coffee POS System</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="assets/CSS/styles.css">
 </head>
+
 <body>
 
-
-<!--navbar-->
-<nav id="navbar" class="navbar position-fixed w-100 top-0 coffee-nav">
+<!--NAVBAR -->
+<nav class="navbar position-fixed w-100 top-0 coffee-nav">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Coffee POS</a>
+        <a class="navbar-brand text-white">Coffee POS</a>
+        <button id="menu_btn" class="btn btn-light">☰</button>
     </div>
-
-    <button id="menu_btn" class="btn btn-info">
-        ☰
-    </button>
-
 </nav>
 
+<!-- SIDEBAR  -->
 
-
-
-<!-- sidebar-->
-<aside id="sidebar"  class="position-fixed coffee-sidebar ">
-
+<aside id="sidebar" class="position-fixed coffee-sidebar">
     <ul class="navbar-nav p-3">
 
         <li class="nav-item m-2" id="dashboard_tab">
-            <div class="nav-link">Dashboard</div>
+            <div class="nav-link text-white">Dashboard</div>
         </li>
 
         <li class="nav-item m-2" id="customer_tab">
-            <div class="nav-link">Customer</div>
+            <div class="nav-link text-white">Customer</div>
         </li>
 
         <li class="nav-item m-2" id="item_tab">
-            <div class="nav-link">Items</div>
+            <div class="nav-link text-white">Items</div>
         </li>
 
         <li class="nav-item m-2" id="order_tab">
-            <div class="nav-link">Orders</div>
+            <div class="nav-link text-white">Orders</div>
         </li>
 
-        <li class="nav-item m-2">
+        <!-- LOGOUT INSIDE -->
+        <li class="nav-item m-2 mt-4">
             <button id="logout_btn" class="btn btn-danger w-100">
                 Logout
             </button>
         </li>
 
-
     </ul>
-
 </aside>
+
+<!--MAIN CONTENT -->
+<div class="content p-4" style="margin-left:250px; margin-top:70px;">
+
+
+        <h1>Welcome to Coffee POS System</h1>
+
+    </section>
+
+
+    <!-- CUSTOMER -->
+
+    <section id="customer_section" class="content-section">
+
+        <h3>Customer Management</h3>
+
+        <!-- FORM -->
+        <div class="row">
+            <div class="col-md-6">
+
+                <input type="text" id="customer_id" class="form-control mb-2" placeholder="ID">
+                <input type="text" id="customer_name" class="form-control mb-2" placeholder="Name">
+                <input type="text" id="customer_phone" class="form-control mb-2" placeholder="Phone">
+                <textarea id="customer_address" class="form-control mb-2" placeholder="Address"></textarea>
+
+                <button id="customer_save_btn" class="btn btn-success">Save</button>
+                <button id="customer_update_btn" class="btn btn-primary">Update</button>
+                <button id="customer_delete_btn" class="btn btn-danger">Delete</button>
+                <button id="customer_reset_btn" class="btn btn-secondary" type="reset">Reset</button>
+
+            </div>
+        </div>
+
+        <!-- TABLE -->
+        <table class="table table-bordered mt-4">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+            </tr>
+            </thead>
+            <tbody id="customer_tbody"></tbody>
+        </table>
+
+    </section>
+
+
+    <!-- ITEM -->
+
+    <section id="item_section" class="content-section" style="display:none;">
+
+        <h3>Item Management</h3>
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <input type="text" id="item_id" class="form-control mb-2" placeholder="Item ID">
+                <input type="text" id="item_name" class="form-control mb-2" placeholder="Name">
+                <input type="number" id="item_price" class="form-control mb-2" placeholder="Price">
+                <input type="number" id="item_qty" class="form-control mb-2" placeholder="Qty">
+
+                <button id="item_save_btn" class="btn btn-success">Save</button>
+                <button id="item_update_btn" class="btn btn-primary">Update</button>
+                <button id="item_delete_btn" class="btn btn-danger">Delete</button>
+                <button id="item_reset_btn" class="btn btn-secondary" type="reset">Reset</button>
+
+            </div>
+        </div>
+
+        <!-- TABLE -->
+        <table class="table table-bordered mt-4">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Qty</th>
+            </tr>
+            </thead>
+            <tbody id="item_tbody"></tbody>
+        </table>
+
+    </section>
+
+
+    <!-- ORDER -->
+
+    <section id="order_section" class="content-section" style="display:none;">
+
+        <h3>Order Management</h3>
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <input type="text" id="order_id" class="form-control mb-2" placeholder="Order ID">
+                <input type="text" id="order_customer_id" class="form-control mb-2" placeholder="Customer ID">
+                <input type="text" id="order_item_id" class="form-control mb-2" placeholder="Item ID">
+                <input type="number" id="order_qty" class="form-control mb-2" placeholder="Qty">
+                <input type="number" id="order_price" class="form-control mb-2" placeholder="Price">
+
+                <button id="order_save_btn" class="btn btn-success">Place Order</button>
+                <button id="order_reset_btn" class="btn btn-secondary" type="reset">Reset</button>
+
+            </div>
+        </div>
+
+        <!-- TABLE -->
+        <table class="table table-bordered mt-4">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Item</th>
+                <th>Qty</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody id="order_tbody"></tbody>
+        </table>
+
+    </section>
+
+</div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<script src="controller/SidebarController.js"></script>
+
+<script type="module" src="controller/SidebarController.js"></script>
 <script type="module" src="controller/CustomerController.js"></script>
 <script type="module" src="controller/ItemController.js"></script>
-
-
+<script type="module" src="controller/OrderController.js"></script>
 </body>
 </html>
