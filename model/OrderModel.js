@@ -10,3 +10,12 @@ class Order {
         this.total = total;
     }
 }
+
+const addOrder = (id,cid,iid,qty,total) =>
+    order_db.push(new Order(id,cid,iid,qty,total));
+
+const getOrders = () => order_db;
+
+export { addOrder, getOrders };
+
+
