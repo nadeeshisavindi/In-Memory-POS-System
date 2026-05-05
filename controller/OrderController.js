@@ -34,3 +34,29 @@ $('#order_save_btn').on('click', () => {
 });
 
 
+
+// reset
+$('#order_reset_btn').on('click', () => {
+    clearOrderForm();
+});
+
+function clearOrderForm() {
+    $('#order_id').val("");
+    $('#order_customer_id').val("");
+    $('#order_item_id').val("");
+    $('#order_qty').val("");
+    $('#order_price').val("");
+}
+
+loadOrderTbl();
+
+
+
+
+
+
+
+
+
+
+
