@@ -40,4 +40,23 @@ $('#item_save_btn').on('click',()=>{
     loadItemTbl();
 });
 
+// UPDATE
+$('#item_update_btn').on('click',()=>{
+    updateItem(
+        $('#item_id').val(),
+        $('#item_name').val(),
+        $('#item_price').val(),
+        $('#item_qty').val()
+    );
+    loadItemTbl();
+});
+
+// DELETE
+$('#item_delete_btn').on('click',()=>{
+    deleteItem($('#item_id').val());
+    loadItemTbl();
+});
+
+
+
 
