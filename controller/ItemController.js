@@ -58,5 +58,19 @@ $('#item_delete_btn').on('click',()=>{
 });
 
 
+// RESET
+$('#item_reset_btn').on('click', () => {
+    clearForm();
+});
+
+function clearForm() {
+    $('#item_id').val("");
+    $('#item_name').val("");
+    $('#item_price').val("");
+    $('#item_qty').val("");
+}
+
+
+loadItemTbl();
 
 
