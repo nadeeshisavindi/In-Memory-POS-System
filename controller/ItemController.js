@@ -1,3 +1,4 @@
+
 import {
     addItem, updateItem, deleteItem,
     getItems, getItemByIndex
@@ -28,46 +29,5 @@ $('#item_tbody').on('click','tr',function(){
     $('#item_qty').val(i.qty);
 });
 
-// SAVE
-$('#item_save_btn').on('click',()=>{
-    addItem(
-        $('#item_id').val(),
-        $('#item_name').val(),
-        $('#item_price').val(),
-        $('#item_qty').val()
-    );
-    loadItemTbl();
-});
-
-// UPDATE
-$('#item_update_btn').on('click',()=>{
-    updateItem(
-        $('#item_id').val(),
-        $('#item_name').val(),
-        $('#item_price').val(),
-        $('#item_qty').val()
-    );
-    loadItemTbl();
-});
-
-// DELETE
-$('#item_delete_btn').on('click',()=>{
-    deleteItem($('#item_id').val());
-    loadItemTbl();
-});
 
 
-// RESET
-$('#item_reset_btn').on('click', () => {
-    clearForm();
-});
-
-function clearForm() {
-    $('#item_id').val("");
-    $('#item_name').val("");
-    $('#item_price').val("");
-    $('#item_qty').val("");
-}
-
-
-loadItemTbl();
