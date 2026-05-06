@@ -1,21 +1,18 @@
+$('#login_btn').on('click', function () {
 
-    $('#login_btn').on('click', function () {
+    let username = $('#username').val();
+    let password = $('#password').val();
 
-    let user = $('#username').val();
-    let pass = $('#password').val();
+    // simple check (example)
+    if (username === "admin" && password === "1234") {
 
-    if(user === "admin" && pass === "1234"){
-    Swal.fire({
-    icon: "success",
-    title: "Login Success"
-}).then(()=>{
-    window.location.href = "login.html"; // go to POS
+        // store login state
+        localStorage.setItem("loggedIn", "true");
+
+        // redirect to dashboard page
+        window.location.href = "index.html";
+
+    } else {
+        Swal.fire("Error", "Invalid login", "error");
+    }
 });
-} else {
-    Swal.fire({
-    icon: "error",
-    title: "Invalid Username or Password"
-});
-}
-});
-
