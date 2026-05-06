@@ -119,3 +119,22 @@ label {
         font-size: 20px;
     }
 }
+@media (max-width: 576px) {
+
+    .coffee-sidebar {
+        width: 260px;
+    }
+
+    .nav-link {
+        font-size: 16px;
+        padding: 16px;
+    }
+
+    .coffee-nav .navbar-brand {
+        font-size: 20px;
+    }
+
+    h1, h2 {
+        font-size: 20px;
+    }
+}
