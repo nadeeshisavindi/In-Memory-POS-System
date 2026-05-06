@@ -51,7 +51,7 @@ $('#item_update_btn').on('click',()=>{
     loadItemTbl();
 });
 
-//dlete
+//delete
 $('#item_delete_btn').on('click',()=>{
     deleteItem($('#item_id').val());
     loadItemTbl();

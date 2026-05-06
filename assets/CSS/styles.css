@@ -84,6 +84,7 @@ label {
     z-index: 1050;
 }
 
+
 /*dashbord*/
 .stat-card {
     border-radius: 15px;
@@ -103,5 +104,80 @@ label {
 
     .coffee-sidebar.active {
         transform: translateX(0);
+    }
+}
+
+
+/* ================= SIDEBAR MOBILE ================= */
+@media (max-width: 991px) {
+
+    .coffee-sidebar {
+        transform: translateX(-100%);
+        width: 260px;
+        transition: 0.3s ease;
+        z-index: 1050;
+    }
+
+    .coffee-sidebar.active {
+        transform: translateX(0);
+    }
+
+    /* overlay feel */
+    #sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        display: none;
+        z-index: 1040;
+    }
+
+    #sidebar-overlay.active {
+        display: block;
+    }
+
+    /* NAV FONT SIZE */
+    .nav-link {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .sidebar-section-label {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    .btn-logout {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    /* DASHBOARD TEXT SIZE */
+    .stat-card h3,
+    .stat-card h2 {
+        font-size: 20px;
+    }
+
+    .stat-card p {
+        font-size: 12px;
+    }
+}
+/**/
+@media (max-width: 576px) {
+
+    .navbar-brand {
+        font-size: 16px;
+    }
+
+    .stat-card {
+        padding: 12px;
+    }
+
+    .stat-card h3,
+    .stat-card h2 {
+        font-size: 18px;
+    }
+
+    .nav-link {
+        font-size: 13px;
     }
 }
