@@ -96,103 +96,26 @@ label {
     transform: translateY(-5px);
 }
 
-/* ================= SIDEBAR + MOBILE ================= */
-@media (max-width: 991px) {
 
-    .coffee-sidebar {
-        transform: translateX(-100%);
-        width: 270px;
-        transition: 0.3s ease;
-        z-index: 1050;
-    }
 
-    .coffee-sidebar.active {
-        transform: translateX(0);
-    }
 
-    /* overlay */
-    #sidebar-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.5);
-        display: none;
-        z-index: 1040;
-    }
 
-    #sidebar-overlay.active {
-        display: block;
-    }
-
-    /* ================= SIDEBAR TEXT BIGGER ================= */
-    .nav-link {
-        font-size: 16px;
-        padding: 20px;
-        font-weight: 500;
-    }
-
-    .sidebar-section-label {
-        font-size: 14px;
-        padding: 10px 14px;
-        font-weight: 600;
-    }
-
-    .btn-logout {
-        font-size: 20px;
-        padding: 14px;
-        font-weight: 600;
-    }
-
-    /* ================= NAVBAR ================= */
-    .navbar-brand {
-        font-size: 18px;
-        font-weight: 600;
-    }
-
-    .btn-nav-toggle {
-        font-size: 20px;
-    }
-
-    /* ================= WELCOME / DASHBOARD TEXT ================= */
-    h1, h2 {
-        font-size: 22px;
-        font-weight: 600;
-    }
-
-    .stat-card h2,
-    .stat-card h3 {
-        font-size: 22px;
-    }
-
-    .stat-card p {
-        font-size: 13px;
-    }
-}
-
-/* ================= SMALL MOBILE ================= */
 @media (max-width: 576px) {
 
-    .navbar-brand {
-        font-size: 20px;
+    .coffee-sidebar {
+        width: 260px;
     }
 
     .nav-link {
-        font-size: 15px;
+        font-size: 16px;
+        padding: 16px;
     }
 
-    .sidebar-section-label {
-        font-size: 13px;
-    }
-
-    h1, h2 {
+    .coffee-nav .navbar-brand {
         font-size: 20px;
     }
 
-    .stat-card {
-        padding: 12px;
-    }
-
-    .stat-card h2,
-    .stat-card h3 {
+    h1, h2 {
         font-size: 20px;
     }
 }
