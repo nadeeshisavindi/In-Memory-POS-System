@@ -8,11 +8,15 @@
     <link rel="stylesheet" href="assets/CSS/styles.css">
 </head>
 
-<body class="d-flex justify-content-center align-items-center vh-100 bg-light">
+<body class="login-body d-flex justify-content-center align-items-center vh-100">
 
 <div class="card p-4 shadow" style="width: 350px;">
 
-    <h3 class="text-center mb-3">☕ Coffee Shop</h3>
+    <!-- image -->
+
+
+   <img src="assets/lib/image/last.jpg" height="400" width="300"/>
+    <h3 class="text-center mb-3">Coffee Shop</h3>
     <p class="text-center text-muted">Login to continue</p>
 
     <!-- username -->
@@ -34,31 +38,11 @@
 
 </div>
 
-<!-- JS -->
+
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="assets/JS.js"></script>
 
-<script>
-    $('#login_btn').on('click', function () {
-
-        let user = $('#username').val();
-        let pass = $('#password').val();
-
-        if(user === "admin" && pass === "1234"){
-            Swal.fire({
-                icon: "success",
-                title: "Login Success"
-            }).then(()=>{
-                window.location.href = "index.html"; // go to POS
-            });
-        } else {
-            Swal.fire({
-                icon: "error",
-                title: "Invalid Username or Password"
-            });
-        }
-    });
-</script>
 
 </body>
 </html>

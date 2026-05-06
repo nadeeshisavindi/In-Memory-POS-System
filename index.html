@@ -5,181 +5,635 @@
     <title>Coffee POS System</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/CSS/styles.css">
+
+    <style>
+        :root {
+            --coffee-darkest: #1e0e06;
+            --coffee-dark:    #2c1810;
+            --coffee-mid:     #5c2e0e;
+            --coffee-rich:    #8b4513;
+            --coffee-warm:    #a0522d;
+            --coffee-caramel: #c17a2a;
+            --coffee-latte:   #d4915a;
+            --coffee-cream:   #f5ede6;
+            --coffee-milk:    #fdf7f2;
+            --coffee-foam:    #fffaf6;
+        }
+
+        * { font-family: 'Poppins', sans-serif; }
+        body { background: var(--coffee-cream); }
+
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(139,69,19,0.3); border-radius: 99px; }
+
+        /* NAV */
+        .coffee-nav {
+            background: var(--coffee-dark);
+            height: 62px;
+            box-shadow: 0 2px 24px rgba(30,14,6,0.45);
+            z-index: 1050;
+            border-bottom: 2px solid var(--coffee-mid);
+        }
+        .coffee-nav .navbar-brand {
+            font-size: 1.3rem; font-weight: 700;
+            color: var(--coffee-latte) !important;
+            display: flex; align-items: center; gap: 9px;
+        }
+
+        .btn-nav-toggle {
+            background: rgba(212,145,90,0.12);
+            border: 1px solid rgba(212,145,90,0.25);
+            color: var(--coffee-latte); border-radius: 9px;
+            padding: 6px 12px; font-size: 1.2rem; line-height: 1;
+        }
+        .btn-nav-toggle:hover { background: rgba(212,145,90,0.25); color: #fff; }
+
+        /* SIDEBAR */
+        .coffee-sidebar {
+            width: 240px; height: 100vh; top: 62px;
+            background: linear-gradient(180deg, var(--coffee-dark) 0%, var(--coffee-darkest) 100%);
+            box-shadow: 4px 0 24px rgba(30,14,6,0.3);
+            z-index: 1040; overflow-y: auto;
+            display: flex; flex-direction: column;
+        }
+        .sidebar-section-label {
+            font-size: 9.5px; letter-spacing: 2.5px; color: rgba(255,255,255,0.25);
+            text-transform: uppercase; padding: 18px 20px 8px; font-weight: 600;
+        }
+        .coffee-sidebar .nav-item { margin: 2px 10px; border-radius: 11px; }
+        .coffee-sidebar .nav-link {
+            display: flex; align-items: center; gap: 11px;
+            padding: 10px 14px; color: rgba(255,255,255,0.55);
+            font-size: 13px; font-weight: 500; border-radius: 11px;
+            transition: all .22s ease; cursor: pointer;
+        }
+        .coffee-sidebar .nav-link i { font-size: 1rem; width: 18px; text-align: center; flex-shrink: 0; }
+        .coffee-sidebar .nav-item:hover .nav-link {
+            background: rgba(212,145,90,0.1); color: var(--coffee-latte); transform: translateX(3px);
+        }
+        .coffee-sidebar .nav-item.active .nav-link {
+            background: linear-gradient(135deg, var(--coffee-rich), var(--coffee-caramel));
+            color: #fff; box-shadow: 0 4px 14px rgba(139,69,19,0.45);
+        }
+        .sidebar-divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 10px 16px; }
+        .btn-logout {
+            margin: auto 10px 20px;
+            background: rgba(220,53,69,0.1); border: 1px solid rgba(220,53,69,0.2);
+            color: #e07070; border-radius: 11px; padding: 9px 14px;
+            font-size: 13px; font-weight: 500;
+            display: flex; align-items: center; gap: 8px; transition: all .2s; cursor: pointer;
+        }
+        .btn-logout:hover { background: rgba(220,53,69,0.85); color: #fff; border-color: transparent; }
+
+        /* CONTENT */
+        .content { margin-left: 240px; margin-top: 62px; padding: 28px 30px; min-height: calc(100vh - 62px); }
+
+        /* SECTION TITLES */
+        .section-title { font-size: 1.45rem; font-weight: 700; color: var(--coffee-dark); margin-bottom: 4px; }
+        .section-subtitle { font-size: 12.5px; color: #9b7b6a; margin-bottom: 24px; }
+
+        /* WELCOME BANNER */
+        .welcome-banner {
+            background: linear-gradient(135deg, var(--coffee-dark) 0%, var(--coffee-mid) 100%);
+            border-radius: 18px; padding: 26px 32px; color: white;
+            margin-bottom: 24px; position: relative; overflow: hidden;
+            border: 1px solid rgba(212,145,90,0.2);
+        }
+        .welcome-banner::after {
+            content: ''; position: absolute;
+            right: -20px; top: -20px;
+            width: 160px; height: 160px;
+            background: radial-gradient(circle, rgba(212,145,90,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .welcome-banner::before {
+            content: ''; position: absolute;
+            right: 40px; bottom: -30px;
+            width: 120px; height: 120px;
+            background: radial-gradient(circle, rgba(212,145,90,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        /*.welcome-pill {*/
+        /*    display: inline-flex; align-items: center; gap: 5px;*/
+        /*    background: rgba(212,145,90,0.18); border: 1px solid rgba(212,145,90,0.3);*/
+        /*    color: var(--coffee-latte); border-radius: 20px;*/
+        /*    padding: 3px 12px; font-size: 10.5px; font-weight: 600; margin-bottom: 10px;*/
+        /*}*/
+        .welcome-banner h4 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+        .welcome-banner .sub { opacity: 0.5; font-size: 12.5px; margin: 0 0 18px; }
+
+        /*!* WELCOME STATS ROW *!*/
+        /*.welcome-stats {*/
+        /*    display: flex; gap: 20px; flex-wrap: wrap;*/
+        /*    padding-top: 16px;*/
+        /*    border-top: 1px solid rgba(255,255,255,0.1);*/
+        /*}*/
+        /*.welcome-stat-item { display: flex; flex-direction: column; }*/
+        /*.welcome-stat-num {*/
+        /*    font-size: 1.5rem; font-weight: 700; color: var(--coffee-latte); line-height: 1;*/
+        /*}*/
+        /*.welcome-stat-lbl { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px; }*/
+        /*.welcome-stat-divider {*/
+        /*    width: 1px; background: rgba(255,255,255,0.1); align-self: stretch; margin: 2px 0;*/
+        /*}*/
+
+        /* TIME DISPLAY */
+        .welcome-time-block {
+            margin-left: auto; text-align: right; flex-shrink: 0;
+        }
+        .welcome-time { font-size: 2rem; font-weight: 700; color: white; line-height: 1; }
+        .welcome-date { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+        /* STAT CARDS */
+        .stat-card {
+            background: white; border-radius: 16px;
+            border: 1px solid rgba(212,145,90,0.15);
+            box-shadow: 0 4px 18px rgba(139,69,19,0.08);
+            transition: transform .2s ease, box-shadow .2s ease; overflow: hidden;
+        }
+        .stat-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(139,69,19,0.15); }
+        .stat-card .card-body { padding: 18px 20px; }
+        .stat-icon-wrap {
+            width: 50px; height: 50px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.35rem; flex-shrink: 0;
+        }
+        .stat-label { font-size: 11px; color: #9b7b6a; margin-bottom: 3px; }
+        .stat-value { font-size: 1.7rem; font-weight: 700; color: var(--coffee-dark); line-height: 1; margin-bottom: 5px; }
+        .stat-badge { font-size: 10px; font-weight: 600; padding: 3px 9px; border-radius: 8px; }
+
+        /* SECTION CARDS */
+        .section-card {
+            background: white; border-radius: 16px;
+            border: 1px solid rgba(212,145,90,0.15);
+            box-shadow: 0 4px 18px rgba(139,69,19,0.07); overflow: hidden;
+        }
+        .section-card .card-header-bar {
+            padding: 14px 18px; border-bottom: 1px solid var(--coffee-cream);
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .section-card .card-header-bar span { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #9b7b6a; }
+        .section-card .card-body { padding: 20px; }
+
+        /* PROGRESS */
+        .coffee-progress { background: var(--coffee-cream); border-radius: 99px; height: 8px; overflow: hidden; }
+        .coffee-progress-fill { height: 100%; border-radius: 99px; }
+
+        /* ACTIVITY */
+        .activity-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; }
+
+        /*!* QUICK CARDS *!*/
+        /*.quick-card {*/
+        /*    background: white; border-radius: 16px;*/
+        /*    border: 1px solid rgba(212,145,90,0.15);*/
+        /*    box-shadow: 0 4px 18px rgba(139,69,19,0.07);*/
+        /*    padding: 20px 18px; text-align: center;*/
+        /*    transition: transform .2s, box-shadow .2s;*/
+        /*    position: relative; overflow: hidden;*/
+        /*}*/
+        /*.quick-card::before {*/
+        /*    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;*/
+        /*}*/
+        /*.quick-card.qc-1::before { background: linear-gradient(90deg, #8b4513, #c17a2a); }*/
+        /*.quick-card.qc-2::before { background: linear-gradient(90deg, #a0522d, #d4915a); }*/
+        /*.quick-card.qc-3::before { background: linear-gradient(90deg, #c17a2a, #e8a962); }*/
+        /*.quick-card.qc-4::before { background: linear-gradient(90deg, #9b3a1f, #d4915a); }*/
+        /*.quick-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(139,69,19,0.14); }*/
+        /*.quick-icon {*/
+        /*    width: 48px; height: 48px; border-radius: 14px;*/
+        /*    display: flex; align-items: center; justify-content: center;*/
+        /*    font-size: 1.3rem; margin: 0 auto 12px;*/
+        /*}*/
+        /*.quick-label { font-size: 10px; color: #9b7b6a; text-transform: uppercase; letter-spacing: .7px; margin-bottom: 5px; }*/
+        /*.quick-value { font-size: 1.6rem; font-weight: 700; color: var(--coffee-dark); margin: 0; line-height: 1; }*/
+        /*.quick-trend {*/
+        /*    font-size: 10.5px; font-weight: 600; margin-top: 6px;*/
+        /*    display: inline-flex; align-items: center; gap: 3px;*/
+        /*    padding: 2px 8px; border-radius: 20px;*/
+        /*}*/
+        /*.trend-up { background: #edf7ed; color: #2d6a4f; }*/
+        /*.trend-neutral { background: #f5ede6; color: #8b4513; }*/
+
+        /*!* FORM CARD *!*/
+        /*.form-card {*/
+        /*    background: white; border-radius: 16px;*/
+        /*    border: 1px solid rgba(212,145,90,0.15);*/
+        /*    box-shadow: 0 4px 18px rgba(139,69,19,0.07); padding: 24px;*/
+        /*}*/
+        /*.form-card h5 { font-size: 14px; font-weight: 700; color: var(--coffee-dark); margin-bottom: 20px; padding-bottom: 14px; border-bottom: 2px solid var(--coffee-cream); }*/
+        /*.form-label { font-size: 11px; font-weight: 700; color: #7a5540; letter-spacing: .3px; margin-bottom: 5px; }*/
+        /*.form-control, .form-select {*/
+        /*    border-radius: 10px; border: 1.5px solid #e8d5c4;*/
+        /*    padding: 10px 13px; font-size: 13px; color: var(--coffee-dark);*/
+        /*    background: var(--coffee-foam); transition: all .2s;*/
+        /*}*/
+        /*.form-control:focus, .form-select:focus { border-color: var(--coffee-caramel); box-shadow: 0 0 0 3px rgba(193,122,42,0.15); background: white; }*/
+        /*.form-control::placeholder { color: #c4a898; }*/
+
+        /* BUTTONS */
+        .btn { border-radius: 10px; font-size: 13px; font-weight: 600; padding: 9px 16px; }
+        .btn-success { background: linear-gradient(135deg, #2d6a4f, #3a8f67); border: none; box-shadow: 0 3px 10px rgba(45,106,79,0.3); }
+        .btn-primary { background: linear-gradient(135deg, var(--coffee-rich), var(--coffee-caramel)); border: none; color: white; box-shadow: 0 3px 10px rgba(139,69,19,0.3); }
+        .btn-danger { background: linear-gradient(135deg, #9b2226, #e63946); border: none; box-shadow: 0 3px 10px rgba(155,34,38,0.3); }
+        .btn-secondary { background: linear-gradient(135deg, #6b4c3b, #9b7b6a); border: none; color: white; }
+
+        /* TABLE */
+        .table-card { background: white; border-radius: 16px; border: 1px solid rgba(212,145,90,0.15); box-shadow: 0 4px 18px rgba(139,69,19,0.07); overflow: hidden; }
+        .table { margin: 0; }
+        .table thead th { background: var(--coffee-dark); color: rgba(255,255,255,0.85); font-size: 10.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 14px 16px; border: none; }
+        .table tbody td { padding: 12px 16px; font-size: 13px; color: #4a2c1a; border-bottom: 1px solid var(--coffee-cream); vertical-align: middle; }
+        .table tbody tr:last-child td { border-bottom: none; }
+        .table tbody tr { transition: background .15s; }
+        .table tbody tr:hover { background: var(--coffee-foam); cursor: pointer; }
+        .badge { border-radius: 8px; font-weight: 600; font-size: 10.5px; padding: 4px 10px; }
+        .tbl-header { padding: 14px 18px; border-bottom: 1px solid var(--coffee-cream); display: flex; align-items: center; justify-content: space-between; }
+        .tbl-header .tbl-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #9b7b6a; }
+    </style>
 </head>
 
 <body>
 
-<!--NAVBAR -->
+<!-- NAV -->
 <nav class="navbar position-fixed w-100 top-0 coffee-nav">
-    <div class="container-fluid">
-        <a class="navbar-brand text-white">Coffee POS</a>
-        <button id="menu_btn" class="btn btn-light">☰</button>
+    <div class="container-fluid px-4">
+
+        <a class="navbar-brand">
+            <i class="bi bi-cup-hot-fill"></i> Coffee Shop
+        </a>
+
+        <div class="d-flex align-items-center gap-3">
+
+
+            <button id="menu_btn" class="btn-nav-toggle d-lg-none">
+                <i class="bi bi-list"></i>
+            </button>
+
+        </div>
     </div>
 </nav>
 
-<!-- SIDEBAR  -->
+<!-- SIDEBAR -->
 
 <aside id="sidebar" class="position-fixed coffee-sidebar">
-    <ul class="navbar-nav p-3">
+    <div class="sidebar-section-label">Main Menu</div>
 
-        <li class="nav-item m-2" id="dashboard_tab">
-            <div class="nav-link text-white">Dashboard</div>
+    <ul class="navbar-nav">
+        <li class="nav-item" id="dashboard_tab">
+            <div class="nav-link">Dashboard</div>
         </li>
-
-        <li class="nav-item m-2" id="customer_tab">
-            <div class="nav-link text-white">Customer</div>
+        <li class="nav-item" id="customer_tab">
+            <div class="nav-link">Customers</div>
         </li>
-
-        <li class="nav-item m-2" id="item_tab">
-            <div class="nav-link text-white">Items</div>
+        <li class="nav-item" id="item_tab">
+            <div class="nav-link"> Items</div>
         </li>
-
-        <li class="nav-item m-2" id="order_tab">
-            <div class="nav-link text-white">Orders</div>
+        <li class="nav-item" id="order_tab">
+            <div class="nav-link">Orders</div>
         </li>
-
-        <!-- LOGOUT INSIDE -->
-        <li class="nav-item m-2 mt-4">
-            <button id="logout_btn" class="btn btn-danger w-100">
-                Logout
-            </button>
+        <li class="nav-item" id="order_details_tab">
+            <div class="nav-link"> Order Details</div>
         </li>
-
     </ul>
+    <hr class="sidebar-divider">
+    <button id="logout_btn" class="btn-logout">
+        <i class="bi bi-box-arrow-left"></i> Logout
+    </button>
 </aside>
 
-<!--MAIN CONTENT -->
-<div class="content p-4" style="margin-left:250px; margin-top:70px;">
 
+<!-- CONTENT -->
+<div class="content">
 
-        <h1>Welcome to Coffee POS System</h1>
+    <!-- DASHBOARD -->
+    <section id="dashboard_section" class="content-section">
 
+        <!-- Welcome Banner -->
+        <div class="welcome-banner">
+            <div class="d-flex align-items-start justify-content-between flex-wrap gap-3">
+                <div>
+
+                    <h4>WELCOME, Admin ☕</h4>
+                    <p class="sub">Here's what's happening with your coffee shop today.</p>
+                </div>
+                <div class="welcome-time-block">
+                    <div class="welcome-time" id="live-time">00:00:00</div>
+                    <div class="welcome-date" id="live-date">Wednesday, 06 May 2026</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Stat Cards -->
+        <div class="row g-3 mb-3">
+            <div class="col-md-3 col-sm-6">
+                <div class="card stat-card border-0">
+                    <div class="card-body d-flex align-items-center gap-3">
+                        <div class="stat-icon-wrap" style="background:#f5ede6;">
+                            <i class="bi bi-people-fill" style="color:#8b4513;"></i>
+                        </div>
+                        <div>
+                            <p class="stat-label">Total Customers</p>
+                            <div class="stat-value" id="totalCustomers">0</div>
+                            <span class="stat-badge" style="background:#f5ede6; color:#8b4513;">Registered</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card stat-card border-0">
+                    <div class="card-body d-flex align-items-center gap-3">
+                        <div class="stat-icon-wrap" style="background:#fdf3e3;">
+                            <i class="bi bi-cup-hot-fill" style="color:#a0522d;"></i>
+                        </div>
+                        <div>
+                            <p class="stat-label">Total Items</p>
+                            <div class="stat-value" id="totalItems">0</div>
+                            <span class="stat-badge" style="background:#fdf3e3; color:#a0522d;">In Menu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card stat-card border-0">
+                    <div class="card-body d-flex align-items-center gap-3">
+                        <div class="stat-icon-wrap" style="background:#fef9ec;">
+                            <i class="bi bi-cart-fill" style="color:#c17a2a;"></i>
+                        </div>
+                        <div>
+                            <p class="stat-label">Total Orders</p>
+                            <div class="stat-value" id="totalOrders">0</div>
+                            <span class="stat-badge" style="background:#fef9ec; color:#c17a2a;">All time</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card stat-card border-0">
+                    <div class="card-body d-flex align-items-center gap-3">
+                        <div class="stat-icon-wrap" style="background:#fceee8;">
+                            <i class="bi bi-cash-stack" style="color:#9b3a1f;"></i>
+                        </div>
+                        <div>
+                            <p class="stat-label">Revenue</p>
+                            <div class="stat-value">Rs 0</div>
+                            <span class="stat-badge" style="background:#fceee8; color:#9b3a1f;">Today</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Items + Activity -->
+        <div class="row g-3 mb-3">
+            <div class="col-md-6">
+                <div class="section-card h-100">
+                    <div class="card-header-bar">
+                        <span>Top Selling Items</span>
+                        <span class="badge" style="background:#f5ede6; color:#8b4513;">This Week</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1" style="font-size:12.5px;">
+                                <span style="font-weight:600; color:#4a2c1a;">Cappuccino</span>
+                                <span style="color:#9b7b6a;">64%</span>
+                            </div>
+                            <div class="coffee-progress">
+                                <div class="coffee-progress-fill" style="width:64%; background:linear-gradient(90deg,#8b4513,#c17a2a);"></div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1" style="font-size:12.5px;">
+                                <span style="font-weight:600; color:#4a2c1a;">Latte</span>
+                                <span style="color:#9b7b6a;">48%</span>
+                            </div>
+                            <div class="coffee-progress">
+                                <div class="coffee-progress-fill" style="width:48%; background:linear-gradient(90deg,#a0522d,#d4915a);"></div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1" style="font-size:12.5px;">
+                                <span style="font-weight:600; color:#4a2c1a;">Espresso</span>
+                                <span style="color:#9b7b6a;">31%</span>
+                            </div>
+                            <div class="coffee-progress">
+                                <div class="coffee-progress-fill" style="width:31%; background:linear-gradient(90deg,#c17a2a,#e8a962);"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="d-flex justify-content-between mb-1" style="font-size:12.5px;">
+                                <span style="font-weight:600; color:#4a2c1a;">Mocha</span>
+                                <span style="color:#9b7b6a;">20%</span>
+                            </div>
+                            <div class="coffee-progress">
+                                <div class="coffee-progress-fill" style="width:20%; background:linear-gradient(90deg,#d4915a,#f0c090);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="section-card h-100">
+                    <div class="card-header-bar">
+                        <span>Recent Activity</span>
+                        <span class="badge" style="background:#f5ede6; color:#8b4513;">Today</span>
+                    </div>
+                    <div class="card-body p-3">
+                        <div class="d-flex align-items-center gap-3 py-2 border-bottom" style="border-color:#f5ede6 !important;">
+                            <div class="activity-icon" style="background:#f5ede6;">
+                                <i class="bi bi-person-plus-fill" style="color:#8b4513;"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <p class="mb-0" style="font-size:12.5px; font-weight:600; color:#2c1810;">New customer added</p>
+                                <p class="mb-0" style="font-size:11px; color:#9b7b6a;">Customer registration</p>
+                            </div>
+                            <span style="font-size:11px; color:#9b7b6a;">2m ago</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 py-2 border-bottom" style="border-color:#f5ede6 !important;">
+                            <div class="activity-icon" style="background:#fdf3e3;">
+                                <i class="bi bi-cart-check-fill" style="color:#a0522d;"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <p class="mb-0" style="font-size:12.5px; font-weight:600; color:#2c1810;">Order #1042 placed</p>
+                                <p class="mb-0" style="font-size:11px; color:#9b7b6a;">3 items · Rs 1,250</p>
+                            </div>
+                            <span style="font-size:11px; color:#9b7b6a;">5m ago</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 py-2 border-bottom" style="border-color:#f5ede6 !important;">
+                            <div class="activity-icon" style="background:#fef9ec;">
+                                <i class="bi bi-box-seam-fill" style="color:#c17a2a;"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <p class="mb-0" style="font-size:12.5px; font-weight:600; color:#2c1810;">Item stock updated</p>
+                                <p class="mb-0" style="font-size:11px; color:#9b7b6a;">Cappuccino · +50 units</p>
+                            </div>
+                            <span style="font-size:11px; color:#9b7b6a;">12m ago</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 py-2">
+                            <div class="activity-icon" style="background:#fceee8;">
+                                <i class="bi bi-check-circle-fill" style="color:#9b3a1f;"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <p class="mb-0" style="font-size:12.5px; font-weight:600; color:#2c1810;">Order #1041 completed</p>
+                                <p class="mb-0" style="font-size:11px; color:#9b7b6a;">Payment received</p>
+                            </div>
+                            <span style="font-size:11px; color:#9b7b6a;">18m ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
 
 
     <!-- CUSTOMER -->
-
     <section id="customer_section" class="content-section">
+        <h2 class="section-title"><i class="bi bi-people-fill me-2" style="color:#8b4513;"></i>Customer Management</h2>
+        <br>
+        <br>
+        <div class="row g-4">
+            <div class="col-md-5">
+                <div class="form-card">
 
-        <h3>Customer Management</h3>
-
-        <!-- FORM -->
-        <div class="row">
-            <div class="col-md-6">
-
-                <input type="text" id="customer_id" class="form-control mb-2" placeholder="ID">
-                <input type="text" id="customer_name" class="form-control mb-2" placeholder="Name">
-                <input type="text" id="customer_phone" class="form-control mb-2" placeholder="Phone">
-                <textarea id="customer_address" class="form-control mb-2" placeholder="Address"></textarea>
-
-                <button id="customer_save_btn" class="btn btn-success">Save</button>
-                <button id="customer_update_btn" class="btn btn-primary">Update</button>
-                <button id="customer_delete_btn" class="btn btn-danger">Delete</button>
-                <button id="customer_reset_btn" class="btn btn-secondary" type="reset">Reset</button>
-
+                    <div class="mb-3"><label class="form-label">Customer ID</label><input type="text" id="customer_id" class="form-control" placeholder="e.g. C001"></div>
+                    <div class="mb-3"><label class="form-label">Full Name</label><input type="text" id="customer_name" class="form-control" placeholder="Enter full name"></div>
+                    <div class="mb-3"><label class="form-label">Phone Number</label><input type="text" id="customer_phone" class="form-control" placeholder="Enter phone number"></div>
+                    <div class="mb-4"><label class="form-label">Address</label><textarea id="customer_address" class="form-control" rows="3" placeholder="Enter address"></textarea></div>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <button id="customer_save_btn" class="btn btn-success">Save</button>
+                        <button id="customer_update_btn" class="btn btn-primary">Update</button>
+                        <button id="customer_delete_btn" class="btn btn-danger">Delete</button>
+                        <button id="customer_reset_btn" class="btn btn-secondary" type="reset">Reset</button>
+                    </div>
+                </div>
             </div>
+            <div class="col-md-7">
+                <div class="table-responsive">
+                        <table class="table">
+                            <thead><tr><th>ID</th><th>Name</th><th>Phone</th><th>Address</th></tr></thead>
+                            <tbody id="customer_tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
         </div>
-
-        <!-- TABLE -->
-        <table class="table table-bordered mt-4">
-            <thead class="table-dark">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Address</th>
-            </tr>
-            </thead>
-            <tbody id="customer_tbody"></tbody>
-        </table>
-
     </section>
-
 
     <!-- ITEM -->
-
     <section id="item_section" class="content-section" style="display:none;">
+        <h2 class="section-title"><i class="bi bi-cup-hot-fill me-2" style="color:#a0522d;"></i>Item Management</h2>
+        <br>
+        <br>
+        <div class="row g-4">
+            <div class="col-md-5">
+                <div class="form-card">
 
-        <h3>Item Management</h3>
-
-        <div class="row">
-            <div class="col-md-6">
-
-                <input type="text" id="item_id" class="form-control mb-2" placeholder="Item ID">
-                <input type="text" id="item_name" class="form-control mb-2" placeholder="Name">
-                <input type="number" id="item_price" class="form-control mb-2" placeholder="Price">
-                <input type="number" id="item_qty" class="form-control mb-2" placeholder="Qty">
-
-                <button id="item_save_btn" class="btn btn-success">Save</button>
-                <button id="item_update_btn" class="btn btn-primary">Update</button>
-                <button id="item_delete_btn" class="btn btn-danger">Delete</button>
-                <button id="item_reset_btn" class="btn btn-secondary" type="reset">Reset</button>
-
+                    <div class="mb-3"><label class="form-label">Item ID</label><input type="text" id="item_id" class="form-control" placeholder="e.g. I001"></div>
+                    <div class="mb-3"><label class="form-label">Item Name</label><input type="text" id="item_name" class="form-control" placeholder="e.g. Cappuccino"></div>
+                    <div class="mb-3"><label class="form-label">Price (Rs)</label><input type="number" id="item_price" class="form-control" placeholder="0.00"></div>
+                    <div class="mb-4"><label class="form-label">Quantity</label><input type="number" id="item_qty" class="form-control" placeholder="0"></div>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <button id="item_save_btn" class="btn btn-success">Save</button>
+                        <button id="item_update_btn" class="btn btn-primary">Update</button>
+                        <button id="item_delete_btn" class="btn btn-danger">Delete</button>
+                        <button id="item_reset_btn" class="btn btn-secondary" type="reset">Reset</button>
+                    </div>
+                </div>
             </div>
+            <div class="col-md-7">
+                 <div class="table-responsive">
+                        <table class="table">
+                            <thead><tr><th>ID</th><th>Name</th><th>Price (Rs)</th><th>Qty</th></tr></thead>
+                            <tbody id="item_tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
         </div>
-
-        <!-- TABLE -->
-        <table class="table table-bordered mt-4">
-            <thead class="table-dark">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Qty</th>
-            </tr>
-            </thead>
-            <tbody id="item_tbody"></tbody>
-        </table>
-
     </section>
 
-
     <!-- ORDER -->
-
     <section id="order_section" class="content-section" style="display:none;">
+        <h2 class="section-title"><i class="bi bi-cart-fill me-2" style="color:#c17a2a;"></i>Order Management</h2>
+        <br>
+        <br>
+        <div class="row g-4">
+            <div class="col-md-5">
+                <div class="form-card">
 
-        <h3>Order Management</h3>
+                    <div class="mb-3"><label class="form-label">Order ID</label><input type="text" id="order_id" class="form-control" placeholder="e.g. O001"></div>
+                    <div class="mb-3"><label class="form-label">Customer ID</label><input type="text" id="order_customer_id" class="form-control" placeholder="e.g. C001"></div>
+                    <div class="mb-3"><label class="form-label">Item ID</label><input type="text" id="order_item_id" class="form-control" placeholder="e.g. I001"></div>
+                    <div class="mb-3"><label class="form-label">Quantity</label><input type="number" id="order_qty" class="form-control" placeholder="0"></div>
+                    <div class="mb-4"><label class="form-label">Unit Price (Rs)</label><input type="number" id="order_price" class="form-control" placeholder="0.00"></div>
+                    <div class="d-flex gap-2">
+                        <button id="order_save_btn" class="btn btn-success flex-grow-1"></i>Place Order</button>
+                        <button id="order_reset_btn" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                 <div class="table-responsive">
+                        <table class="table">
+                            <thead><tr><th>ID</th><th>Customer</th><th>Item</th><th>Qty</th><th>Total (Rs)</th></tr></thead>
+                            <tbody id="order_tbody"></tbody>
+                        </table>
 
-        <div class="row">
-            <div class="col-md-6">
-
-                <input type="text" id="order_id" class="form-control mb-2" placeholder="Order ID">
-                <input type="text" id="order_customer_id" class="form-control mb-2" placeholder="Customer ID">
-                <input type="text" id="order_item_id" class="form-control mb-2" placeholder="Item ID">
-                <input type="number" id="order_qty" class="form-control mb-2" placeholder="Qty">
-                <input type="number" id="order_price" class="form-control mb-2" placeholder="Price">
-
-                <button id="order_save_btn" class="btn btn-success">Place Order</button>
-                <button id="order_reset_btn" class="btn btn-secondary" type="reset">Reset</button>
-
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- TABLE -->
-        <table class="table table-bordered mt-4">
-            <thead class="table-dark">
-            <tr>
-                <th>ID</th>
-                <th>Customer</th>
-                <th>Item</th>
-                <th>Qty</th>
-                <th>Total</th>
-            </tr>
-            </thead>
-            <tbody id="order_tbody"></tbody>
-        </table>
-
+    <!-- ORDER DETAILS -->
+    <section id="order-details" class="content-section" style="display:none;">
+        <h2 class="section-title"><i class="bi bi-file-earmark-text-fill me-2" style="color:#9b3a1f;"></i>Order Details</h2>
+      <br>
+        <br>
+        <div class="table-card">
+            <div class="tbl-header"><span class="tbl-title">Order Details</span></div>
+            <div class="table-responsive" style="max-height:500px; overflow-y:auto;">
+                <table class="table">
+                    <thead><tr><th>Order ID</th><th>Date</th><th>Customer ID</th><th>Items</th><th>Total (Rs)</th><th>Status</th></tr></thead>
+                    <tbody id="orderHistoryBody"></tbody>
+                </table>
+            </div>
+            <div id="no-orders-msg" class="text-center py-5 d-none">
+                <i class="bi bi-cup-hot d-block mb-3" style="font-size:3rem; color:#d4915a; opacity:0.4;"></i>
+                <h6 style="color:#9b7b6a;">No Orders Yet</h6>
+               </div>
+        </div>
     </section>
 
 </div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 <script type="module" src="controller/SidebarController.js"></script>
 <script type="module" src="controller/CustomerController.js"></script>
 <script type="module" src="controller/ItemController.js"></script>
 <script type="module" src="controller/OrderController.js"></script>
+
+<!-- Live Clock -->
+<script>
+    function updateClock() {
+        const now = new Date();
+        const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+        const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        const h = String(now.getHours()).padStart(2,'0');
+        const m = String(now.getMinutes()).padStart(2,'0');
+        const s = String(now.getSeconds()).padStart(2,'0');
+        document.getElementById('live-time').textContent = h + ':' + m + ':' + s;
+        document.getElementById('live-date').textContent =
+            days[now.getDay()] + ', ' + String(now.getDate()).padStart(2,'0') + ' ' +
+            months[now.getMonth()] + ' ' + now.getFullYear();
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+</script>
+
 </body>
 </html>

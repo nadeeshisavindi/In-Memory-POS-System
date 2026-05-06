@@ -1,4 +1,3 @@
-
 import { order_db } from '../db/db.js';
 
 class Order {
@@ -8,14 +7,13 @@ class Order {
         this.itemId = itemId;
         this.qty = qty;
         this.total = total;
+        this.date = new Date().toLocaleDateString();
     }
 }
 
-const addOrder = (id,cid,iid,qty,total) =>
-    order_db.push(new Order(id,cid,iid,qty,total));
+const addOrder = (id, cid, iid, qty, total) =>
+    order_db.push(new Order(id, cid, iid, qty, total));
 
 const getOrders = () => order_db;
 
 export { addOrder, getOrders };
-
-

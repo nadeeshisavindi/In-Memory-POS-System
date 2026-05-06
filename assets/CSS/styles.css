@@ -1,3 +1,60 @@
+.login-body {
+
+
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url("../lib/image/coffeeees.jpg") center/cover no-repeat;
+
+
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* CARD */
+.card {
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.9);
+    border: none;
+}
+
+/* IMAGE */
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* TITLE */
+h3 {
+    color: #4b2e2b;
+    font-weight: bold;
+}
+
+/* BUTTON */
+.coffee-btn {
+    background-color: #6f4e37;
+    color: white;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.coffee-btn:hover {
+    background-color: #4b2e2b;
+}
+
+/* INPUT */
+.form-control {
+    border-radius: 10px;
+}
+
+/* LABEL */
+label {
+    font-weight: 500;
+    color: #333;
+}
+
+
 .coffee-nav {
     background-color: #4b2e2b;
 }
@@ -12,4 +69,39 @@
 .content {
     margin-left: 250px;
     margin-top: 50px;
+}
+
+
+
+.coffee-sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    background: #111;
+    transition: 0.3s;
+    z-index: 1050;
+}
+
+/*dashbord*/
+.stat-card {
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+@media (max-width: 991px) {
+
+    .coffee-sidebar {
+        transform: translateX(-100%);
+    }
+
+    .coffee-sidebar.active {
+        transform: translateX(0);
+    }
 }
