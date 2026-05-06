@@ -9,7 +9,6 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* CARD */
 .card {
     border-radius: 20px;
     backdrop-filter: blur(10px);
@@ -17,7 +16,7 @@
     border: none;
 }
 
-/* IMAGE */
+
 .card img {
     width: 100%;
     height: 180px;
@@ -25,13 +24,13 @@
     border-radius: 15px;
 }
 
-/* TITLE */
+
 h3 {
     color: #4b2e2b;
     font-weight: bold;
 }
 
-/* BUTTON */
+
 .coffee-btn {
     background-color: #6f4e37;
     color: white;
@@ -43,12 +42,12 @@ h3 {
     background-color: #4b2e2b;
 }
 
-/* INPUT */
+/* input */
 .form-control {
     border-radius: 10px;
 }
 
-/* LABEL */
+
 label {
     font-weight: 500;
     color: #333;
@@ -103,11 +102,11 @@ label {
 @media (max-width: 576px) {
 
     .coffee-sidebar {
-        width: 260px;
+        width: 300px;
     }
 
     .nav-link {
-        font-size: 16px;
+        font-size: 20px;
         padding: 16px;
     }
 
@@ -116,25 +115,6 @@ label {
     }
 
     h1, h2 {
-        font-size: 20px;
-    }
-}
-@media (max-width: 576px) {
-
-    .coffee-sidebar {
-        width: 260px;
-    }
-
-    .nav-link {
-        font-size: 16px;
-        padding: 16px;
-    }
-
-    .coffee-nav .navbar-brand {
-        font-size: 20px;
-    }
-
-    h1, h2 {
-        font-size: 20px;
+        font-size: 24px;
     }
 }
