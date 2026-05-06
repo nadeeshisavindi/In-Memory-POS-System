@@ -126,7 +126,7 @@ label {
     /* ================= SIDEBAR TEXT BIGGER ================= */
     .nav-link {
         font-size: 16px;
-        padding: 12px;
+        padding: 20px;
         font-weight: 500;
     }
 
@@ -137,8 +137,8 @@ label {
     }
 
     .btn-logout {
-        font-size: 16px;
-        padding: 12px;
+        font-size: 20px;
+        padding: 14px;
         font-weight: 600;
     }
 
