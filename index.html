@@ -141,14 +141,14 @@
         /*    width: 1px; background: rgba(255,255,255,0.1); align-self: stretch; margin: 2px 0;*/
         /*}*/
 
-        /* TIME DISPLAY */
+        /* time display */
         .welcome-time-block {
             margin-left: auto; text-align: right; flex-shrink: 0;
         }
         .welcome-time { font-size: 2rem; font-weight: 700; color: white; line-height: 1; }
         .welcome-date { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 2px; }
 
-        /* STAT CARDS */
+        /* stat crad */
         .stat-card {
             background: white; border-radius: 16px;
             border: 1px solid rgba(212,145,90,0.15);
@@ -166,7 +166,7 @@
         .stat-value { font-size: 1.7rem; font-weight: 700; color: var(--coffee-dark); line-height: 1; margin-bottom: 5px; }
         .stat-badge { font-size: 10px; font-weight: 600; padding: 3px 9px; border-radius: 8px; }
 
-        /* SECTION CARDS */
+        /* section card */
         .section-card {
             background: white; border-radius: 16px;
             border: 1px solid rgba(212,145,90,0.15);
@@ -179,69 +179,21 @@
         .section-card .card-header-bar span { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #9b7b6a; }
         .section-card .card-body { padding: 20px; }
 
-        /* PROGRESS */
+        /* progress*/
         .coffee-progress { background: var(--coffee-cream); border-radius: 99px; height: 8px; overflow: hidden; }
         .coffee-progress-fill { height: 100%; border-radius: 99px; }
 
-        /* ACTIVITY */
+
         .activity-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; }
 
-        /*!* QUICK CARDS *!*/
-        /*.quick-card {*/
-        /*    background: white; border-radius: 16px;*/
-        /*    border: 1px solid rgba(212,145,90,0.15);*/
-        /*    box-shadow: 0 4px 18px rgba(139,69,19,0.07);*/
-        /*    padding: 20px 18px; text-align: center;*/
-        /*    transition: transform .2s, box-shadow .2s;*/
-        /*    position: relative; overflow: hidden;*/
-        /*}*/
-        /*.quick-card::before {*/
-        /*    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;*/
-        /*}*/
-        /*.quick-card.qc-1::before { background: linear-gradient(90deg, #8b4513, #c17a2a); }*/
-        /*.quick-card.qc-2::before { background: linear-gradient(90deg, #a0522d, #d4915a); }*/
-        /*.quick-card.qc-3::before { background: linear-gradient(90deg, #c17a2a, #e8a962); }*/
-        /*.quick-card.qc-4::before { background: linear-gradient(90deg, #9b3a1f, #d4915a); }*/
-        /*.quick-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(139,69,19,0.14); }*/
-        /*.quick-icon {*/
-        /*    width: 48px; height: 48px; border-radius: 14px;*/
-        /*    display: flex; align-items: center; justify-content: center;*/
-        /*    font-size: 1.3rem; margin: 0 auto 12px;*/
-        /*}*/
-        /*.quick-label { font-size: 10px; color: #9b7b6a; text-transform: uppercase; letter-spacing: .7px; margin-bottom: 5px; }*/
-        /*.quick-value { font-size: 1.6rem; font-weight: 700; color: var(--coffee-dark); margin: 0; line-height: 1; }*/
-        /*.quick-trend {*/
-        /*    font-size: 10.5px; font-weight: 600; margin-top: 6px;*/
-        /*    display: inline-flex; align-items: center; gap: 3px;*/
-        /*    padding: 2px 8px; border-radius: 20px;*/
-        /*}*/
-        /*.trend-up { background: #edf7ed; color: #2d6a4f; }*/
-        /*.trend-neutral { background: #f5ede6; color: #8b4513; }*/
-
-        /*!* FORM CARD *!*/
-        /*.form-card {*/
-        /*    background: white; border-radius: 16px;*/
-        /*    border: 1px solid rgba(212,145,90,0.15);*/
-        /*    box-shadow: 0 4px 18px rgba(139,69,19,0.07); padding: 24px;*/
-        /*}*/
-        /*.form-card h5 { font-size: 14px; font-weight: 700; color: var(--coffee-dark); margin-bottom: 20px; padding-bottom: 14px; border-bottom: 2px solid var(--coffee-cream); }*/
-        /*.form-label { font-size: 11px; font-weight: 700; color: #7a5540; letter-spacing: .3px; margin-bottom: 5px; }*/
-        /*.form-control, .form-select {*/
-        /*    border-radius: 10px; border: 1.5px solid #e8d5c4;*/
-        /*    padding: 10px 13px; font-size: 13px; color: var(--coffee-dark);*/
-        /*    background: var(--coffee-foam); transition: all .2s;*/
-        /*}*/
-        /*.form-control:focus, .form-select:focus { border-color: var(--coffee-caramel); box-shadow: 0 0 0 3px rgba(193,122,42,0.15); background: white; }*/
-        /*.form-control::placeholder { color: #c4a898; }*/
-
-        /* BUTTONS */
+        /* button */
         .btn { border-radius: 10px; font-size: 13px; font-weight: 600; padding: 9px 16px; }
         .btn-success { background: linear-gradient(135deg, #2d6a4f, #3a8f67); border: none; box-shadow: 0 3px 10px rgba(45,106,79,0.3); }
         .btn-primary { background: linear-gradient(135deg, var(--coffee-rich), var(--coffee-caramel)); border: none; color: white; box-shadow: 0 3px 10px rgba(139,69,19,0.3); }
         .btn-danger { background: linear-gradient(135deg, #9b2226, #e63946); border: none; box-shadow: 0 3px 10px rgba(155,34,38,0.3); }
         .btn-secondary { background: linear-gradient(135deg, #6b4c3b, #9b7b6a); border: none; color: white; }
 
-        /* TABLE */
+        /* table */
         .table-card { background: white; border-radius: 16px; border: 1px solid rgba(212,145,90,0.15); box-shadow: 0 4px 18px rgba(139,69,19,0.07); overflow: hidden; }
         .table { margin: 0; }
         .table thead th { background: var(--coffee-dark); color: rgba(255,255,255,0.85); font-size: 10.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 14px 16px; border: none; }
@@ -257,7 +209,7 @@
 
 <body>
 
-<!-- NAV -->
+<!-- nav -->
 <nav class="navbar position-fixed w-100 top-0 coffee-nav">
     <div class="container-fluid px-4">
 
@@ -276,7 +228,7 @@
     </div>
 </nav>
 
-<!-- SIDEBAR -->
+<!--sidebar-->
 
 <aside id="sidebar" class="position-fixed coffee-sidebar">
     <div class="sidebar-section-label">Main Menu</div>
@@ -305,13 +257,12 @@
 </aside>
 
 
-<!-- CONTENT -->
+
 <div class="content">
 
-    <!-- DASHBOARD -->
+    <!-- dashbord -->
     <section id="dashboard_section" class="content-section">
 
-        <!-- Welcome Banner -->
         <div class="welcome-banner">
             <div class="d-flex align-items-start justify-content-between flex-wrap gap-3">
                 <div>
@@ -327,7 +278,7 @@
 
         </div>
 
-        <!-- Stat Cards -->
+        <!-- stat card-->
         <div class="row g-3 mb-3">
             <div class="col-md-3 col-sm-6">
                 <div class="card stat-card border-0">
@@ -387,7 +338,7 @@
             </div>
         </div>
 
-        <!-- Top Items + Activity -->
+        <!-- top items -->
         <div class="row g-3 mb-3">
             <div class="col-md-6">
                 <div class="section-card h-100">
@@ -490,7 +441,7 @@
 
 
 
-    <!-- CUSTOMER -->
+    <!-- custome -->
     <section id="customer_section" class="content-section">
         <h2 class="section-title"><i class="bi bi-people-fill me-2" style="color:#8b4513;"></i>Customer Management</h2>
         <br>
@@ -523,7 +474,7 @@
         </div>
     </section>
 
-    <!-- ITEM -->
+    <!-- item -->
     <section id="item_section" class="content-section" style="display:none;">
         <h2 class="section-title"><i class="bi bi-cup-hot-fill me-2" style="color:#a0522d;"></i>Item Management</h2>
         <br>
@@ -556,7 +507,7 @@
         </div>
     </section>
 
-    <!-- ORDER -->
+    <!-- orde -->
     <section id="order_section" class="content-section" style="display:none;">
         <h2 class="section-title"><i class="bi bi-cart-fill me-2" style="color:#c17a2a;"></i>Order Management</h2>
         <br>
@@ -588,7 +539,7 @@
         </div>
     </section>
 
-    <!-- ORDER DETAILS -->
+    <!-- ord details -->
     <section id="order-details" class="content-section" style="display:none;">
         <h2 class="section-title"><i class="bi bi-file-earmark-text-fill me-2" style="color:#9b3a1f;"></i>Order Details</h2>
       <br>
@@ -617,7 +568,7 @@
 <script type="module" src="controller/ItemController.js"></script>
 <script type="module" src="controller/OrderController.js"></script>
 
-<!-- Live Clock -->
+<!-- time -->
 <script>
     function updateClock() {
         const now = new Date();

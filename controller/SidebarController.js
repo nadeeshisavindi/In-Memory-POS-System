@@ -8,31 +8,31 @@ import { initOrderDetails } from './OrderDetailsController.js';
 
 $(document).ready(function () {
 
-    //  MOBILE HAMBURGER
+    // hambuger icon
     $('#menu_btn').on('click', function () {
         $('#sidebar').toggleClass('active');
     });
 
-    // DEFAULT LOAD
+    // default
     $('.content-section').hide();
     $('#dashboard_section').show();
     loadDashboard();
 
-    // CUSTOMER
+    // customer
     $('#customer_tab').on('click', function () {
         $('.content-section').hide();
         $('#customer_section').show();
         loadCustomerTbl();
     });
 
-    // ITEM
+    // item
     $('#item_tab').on('click', function () {
         $('.content-section').hide();
         $('#item_section').show();
         loadItemTbl();
     });
 
-    // ORDER
+    // order
     $('#order_tab').on('click', function () {
         $('.content-section').hide();
         $('#order_section').show();
@@ -46,14 +46,14 @@ $(document).ready(function () {
         initOrderDetails();
     });
 
-    // DASHBOARD
+    // dashboard
     $('#dashboard_tab').on('click', function () {
         $('.content-section').hide();
         $('#dashboard_section').show();
         loadDashboard();
     });
 
-    // LOGOUT
+    // logout
     $('#logout_btn').on('click', function () {
         Swal.fire({
             title: "Logout?",

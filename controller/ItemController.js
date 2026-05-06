@@ -19,7 +19,7 @@ export const loadItemTbl = () => {
     });
 };
 
-// CLICK
+//click
 $('#item_tbody').on('click','tr',function(){
     let i = getItemByIndex($(this).data('index'));
 
@@ -29,7 +29,7 @@ $('#item_tbody').on('click','tr',function(){
     $('#item_qty').val(i.qty);
 });
 
-// SAVE
+// save
 $('#item_save_btn').on('click',()=>{
     addItem(
         $('#item_id').val(),
@@ -40,7 +40,7 @@ $('#item_save_btn').on('click',()=>{
     loadItemTbl();
 });
 
-// UPDATE
+// update
 $('#item_update_btn').on('click',()=>{
     updateItem(
         $('#item_id').val(),
@@ -51,14 +51,14 @@ $('#item_update_btn').on('click',()=>{
     loadItemTbl();
 });
 
-// DELETE
+//dlete
 $('#item_delete_btn').on('click',()=>{
     deleteItem($('#item_id').val());
     loadItemTbl();
 });
 
 
-// RESET
+// reset
 $('#item_reset_btn').on('click', () => {
     clearForm();
 });

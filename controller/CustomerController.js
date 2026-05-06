@@ -3,7 +3,7 @@ import {
     getCustomers, getCustomerById, getCustomerByIndex
 } from '../model/CustomerModel.js';
 
-// LOAD TABLE
+// load table
 export const loadCustomerTbl = () => {
     $('#customer_tbody').empty();
 
@@ -19,7 +19,7 @@ export const loadCustomerTbl = () => {
     });
 };
 
-// CLICK ROW
+// click
 $('#customer_tbody').on('click', 'tr', function () {
     let c = getCustomerByIndex($(this).data('index'));
 
@@ -29,7 +29,7 @@ $('#customer_tbody').on('click', 'tr', function () {
     $('#customer_address').val(c.address);
 });
 
-// SAVE
+// save
 $('#customer_save_btn').on('click', () => {
     addCustomer(
         $('#customer_id').val(),
@@ -41,7 +41,7 @@ $('#customer_save_btn').on('click', () => {
     loadCustomerTbl();
 });
 
-// UPDATE
+// update
 $('#customer_update_btn').on('click', () => {
     updateCustomer(
         $('#customer_id').val(),
@@ -53,7 +53,7 @@ $('#customer_update_btn').on('click', () => {
     loadCustomerTbl();
 });
 
-// DELETE
+// delete
 $('#customer_delete_btn').on('click', () => {
     deleteCustomer($('#customer_id').val());
     loadCustomerTbl();
@@ -61,7 +61,7 @@ $('#customer_delete_btn').on('click', () => {
 
 
 
-// RESET
+// reset
 $('#customer_reset_btn').on('click', () => {
     clearForm();
 });
