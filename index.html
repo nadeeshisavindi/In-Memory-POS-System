@@ -94,7 +94,6 @@
 
         /* SECTION TITLES */
         .section-title { font-size: 1.45rem; font-weight: 700; color: var(--coffee-dark); margin-bottom: 4px; }
-        .section-subtitle { font-size: 12.5px; color: #9b7b6a; margin-bottom: 24px; }
 
         /* WELCOME BANNER */
         .welcome-banner {
@@ -268,7 +267,7 @@
                 <div>
 
                     <h4>WELCOME, Admin ☕</h4>
-                    <p class="sub">Here's what's happening with your coffee shop today.</p>
+
                 </div>
                 <div class="welcome-time-block">
                     <div class="welcome-time" id="live-time">00:00:00</div>
@@ -322,20 +321,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="card stat-card border-0">
-                    <div class="card-body d-flex align-items-center gap-3">
-                        <div class="stat-icon-wrap" style="background:#fceee8;">
-                            <i class="bi bi-cash-stack" style="color:#9b3a1f;"></i>
-                        </div>
-                        <div>
-                            <p class="stat-label">Revenue</p>
-                            <div class="stat-value">Rs 0</div>
-                            <span class="stat-badge" style="background:#fceee8; color:#9b3a1f;">Today</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
 
         <!-- top items -->
@@ -386,56 +372,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="section-card h-100">
-                    <div class="card-header-bar">
-                        <span>Recent Activity</span>
-                        <span class="badge" style="background:#f5ede6; color:#8b4513;">Today</span>
-                    </div>
-                    <div class="card-body p-3">
-                        <div class="d-flex align-items-center gap-3 py-2 border-bottom" style="border-color:#f5ede6 !important;">
-                            <div class="activity-icon" style="background:#f5ede6;">
-                                <i class="bi bi-person-plus-fill" style="color:#8b4513;"></i>
-                            </div>
-                            <div class="flex-grow-1">
-                                <p class="mb-0" style="font-size:12.5px; font-weight:600; color:#2c1810;">New customer added</p>
-                                <p class="mb-0" style="font-size:11px; color:#9b7b6a;">Customer registration</p>
-                            </div>
-                            <span style="font-size:11px; color:#9b7b6a;">2m ago</span>
-                        </div>
-                        <div class="d-flex align-items-center gap-3 py-2 border-bottom" style="border-color:#f5ede6 !important;">
-                            <div class="activity-icon" style="background:#fdf3e3;">
-                                <i class="bi bi-cart-check-fill" style="color:#a0522d;"></i>
-                            </div>
-                            <div class="flex-grow-1">
-                                <p class="mb-0" style="font-size:12.5px; font-weight:600; color:#2c1810;">Order #1042 placed</p>
-                                <p class="mb-0" style="font-size:11px; color:#9b7b6a;">3 items · Rs 1,250</p>
-                            </div>
-                            <span style="font-size:11px; color:#9b7b6a;">5m ago</span>
-                        </div>
-                        <div class="d-flex align-items-center gap-3 py-2 border-bottom" style="border-color:#f5ede6 !important;">
-                            <div class="activity-icon" style="background:#fef9ec;">
-                                <i class="bi bi-box-seam-fill" style="color:#c17a2a;"></i>
-                            </div>
-                            <div class="flex-grow-1">
-                                <p class="mb-0" style="font-size:12.5px; font-weight:600; color:#2c1810;">Item stock updated</p>
-                                <p class="mb-0" style="font-size:11px; color:#9b7b6a;">Cappuccino · +50 units</p>
-                            </div>
-                            <span style="font-size:11px; color:#9b7b6a;">12m ago</span>
-                        </div>
-                        <div class="d-flex align-items-center gap-3 py-2">
-                            <div class="activity-icon" style="background:#fceee8;">
-                                <i class="bi bi-check-circle-fill" style="color:#9b3a1f;"></i>
-                            </div>
-                            <div class="flex-grow-1">
-                                <p class="mb-0" style="font-size:12.5px; font-weight:600; color:#2c1810;">Order #1041 completed</p>
-                                <p class="mb-0" style="font-size:11px; color:#9b7b6a;">Payment received</p>
-                            </div>
-                            <span style="font-size:11px; color:#9b7b6a;">18m ago</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </section>
 
@@ -450,7 +387,7 @@
             <div class="col-md-5">
                 <div class="form-card">
 
-                    <div class="mb-3"><label class="form-label">Customer ID</label><input type="text" id="customer_id" class="form-control" placeholder="e.g. C001"></div>
+                    <div class="mb-3"><label class="form-label">Customer ID</label><input type="text" id="customer_id" class="form-control" placeholder=" C001"></div>
                     <div class="mb-3"><label class="form-label">Full Name</label><input type="text" id="customer_name" class="form-control" placeholder="Enter full name"></div>
                     <div class="mb-3"><label class="form-label">Phone Number</label><input type="text" id="customer_phone" class="form-control" placeholder="Enter phone number"></div>
                     <div class="mb-4"><label class="form-label">Address</label><textarea id="customer_address" class="form-control" rows="3" placeholder="Enter address"></textarea></div>
@@ -474,38 +411,105 @@
         </div>
     </section>
 
+<!--    &lt;!&ndash; item &ndash;&gt;-->
+<!--    <section id="item_section" class="content-section" style="display:none;">-->
+<!--        <h2 class="section-title"><i class="bi bi-cup-hot-fill me-2" style="color:#a0522d;"></i>Item Management</h2>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <div class="row g-4">-->
+<!--            <div class="col-md-5">-->
+<!--                <div class="form-card">-->
+
+<!--                    <div class="mb-3"><label class="form-label">Item ID</label><input type="text" id="item_id" class="form-control" placeholder="e.g. I001"></div>-->
+
+<!--                    &lt;!&ndash;  Item  dropdown &ndash;&gt;-->
+<!--                    <div class="mb-3">-->
+<!--                        <label class="form-label">Item Name</label>-->
+<!--                        <select id="item_name" class="form-control form-select">-->
+<!--                            <option value=""></option>-->
+<!--                            <option value="Cappuccino">Cappuccino</option>-->
+<!--                            <option value="Latte">Latte</option>-->
+<!--                            <option value="Espresso">Espresso</option>-->
+<!--                            <option value="Mocha">Mocha</option>-->
+<!--                            <option value="Americano">Americano</option>-->
+<!--                            <option value="Flat White">Flat White</option>-->
+<!--                            <option value="Macchiato">Macchiato</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+
+<!--                    <div class="mb-3"><label class="form-label">Price (Rs)</label><input type="number" id="item_price" class="form-control" placeholder="0.00"></div>-->
+<!--                    <div class="mb-4"><label class="form-label">Quantity</label><input type="number" id="item_qty" class="form-control" placeholder="0"></div>-->
+<!--                    <div class="d-flex gap-2 flex-wrap">-->
+<!--                        <button id="item_save_btn" class="btn btn-success">Save</button>-->
+<!--                        <button id="item_update_btn" class="btn btn-primary">Update</button>-->
+<!--                        <button id="item_delete_btn" class="btn btn-danger">Delete</button>-->
+<!--                        <button id="item_reset_btn" class="btn btn-secondary" type="reset">Reset</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-7">-->
+<!--                <div class="table-responsive">-->
+<!--                    <table class="table">-->
+<!--                        <thead><tr><th>ID</th><th>Name</th><th>Price (Rs)</th><th>Qty</th></tr></thead>-->
+<!--                        <tbody id="item_tbody"></tbody>-->
+<!--                    </table>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+
+
+
+
+
     <!-- item -->
     <section id="item_section" class="content-section" style="display:none;">
         <h2 class="section-title"><i class="bi bi-cup-hot-fill me-2" style="color:#a0522d;"></i>Item Management</h2>
-        <br>
-        <br>
+        <br><br>
         <div class="row g-4">
             <div class="col-md-5">
                 <div class="form-card">
 
-                    <div class="mb-3"><label class="form-label">Item ID</label><input type="text" id="item_id" class="form-control" placeholder="e.g. I001"></div>
-                    <div class="mb-3"><label class="form-label">Item Name</label><input type="text" id="item_name" class="form-control" placeholder="e.g. Cappuccino"></div>
+                    <div class="mb-3"><label class="form-label">Item ID</label>
+                        <input type="text" id="item_id" class="form-control" placeholder="Auto-filled" readonly>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Item Name</label>
+                        <select id="item_name" class="form-control form-select">
+                            <option value="" data-id=""></option>
+                            <option value="Cappuccino"  data-id="1">Cappuccino</option>
+                            <option value="Latte"       data-id="2">Latte</option>
+                            <option value="Espresso"    data-id="3">Espresso</option>
+                            <option value="Mocha"       data-id="4">Mocha</option>
+                            <option value="Americano"   data-id="5">Americano</option>
+                            <option value="Flat White"  data-id="6">Flat White</option>
+                            <option value="Macchiato"   data-id="7">Macchiato</option>
+                        </select>
+                    </div>
+
                     <div class="mb-3"><label class="form-label">Price (Rs)</label><input type="number" id="item_price" class="form-control" placeholder="0.00"></div>
                     <div class="mb-4"><label class="form-label">Quantity</label><input type="number" id="item_qty" class="form-control" placeholder="0"></div>
                     <div class="d-flex gap-2 flex-wrap">
                         <button id="item_save_btn" class="btn btn-success">Save</button>
                         <button id="item_update_btn" class="btn btn-primary">Update</button>
                         <button id="item_delete_btn" class="btn btn-danger">Delete</button>
-                        <button id="item_reset_btn" class="btn btn-secondary" type="reset">Reset</button>
+                        <button id="item_reset_btn" class="btn btn-secondary">Reset</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-7">
-                 <div class="table-responsive">
-                        <table class="table">
-                            <thead><tr><th>ID</th><th>Name</th><th>Price (Rs)</th><th>Qty</th></tr></thead>
-                            <tbody id="item_tbody"></tbody>
-                        </table>
-                    </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead><tr><th>ID</th><th>Name</th><th>Price (Rs)</th><th>Qty</th></tr></thead>
+                        <tbody id="item_tbody"></tbody>
+                    </table>
                 </div>
-
+            </div>
         </div>
     </section>
+
+
 
     <!-- orde -->
     <section id="order_section" class="content-section" style="display:none;">
@@ -516,9 +520,9 @@
             <div class="col-md-5">
                 <div class="form-card">
 
-                    <div class="mb-3"><label class="form-label">Order ID</label><input type="text" id="order_id" class="form-control" placeholder="e.g. O001"></div>
-                    <div class="mb-3"><label class="form-label">Customer ID</label><input type="text" id="order_customer_id" class="form-control" placeholder="e.g. C001"></div>
-                    <div class="mb-3"><label class="form-label">Item ID</label><input type="text" id="order_item_id" class="form-control" placeholder="e.g. I001"></div>
+                    <div class="mb-3"><label class="form-label">Order ID</label><input type="text" id="order_id" class="form-control" placeholder="1001"></div>
+                    <div class="mb-3"><label class="form-label">Customer ID</label><input type="text" id="order_customer_id" class="form-control" placeholder="C001"></div>
+                    <div class="mb-3"><label class="form-label">Item ID</label><input type="text" id="order_item_id" class="form-control" placeholder="1"></div>
                     <div class="mb-3"><label class="form-label">Quantity</label><input type="number" id="order_qty" class="form-control" placeholder="0"></div>
                     <div class="mb-4"><label class="form-label">Unit Price (Rs)</label><input type="number" id="order_price" class="form-control" placeholder="0.00"></div>
                     <div class="d-flex gap-2">

@@ -9,7 +9,7 @@
     icon: "success",
     title: "Login Success"
 }).then(()=>{
-        window.location.href = "dashboard.html";
+        window.location.href = "index.html";
 });
 } else {
     Swal.fire({
